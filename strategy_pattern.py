@@ -15,27 +15,29 @@ class MakeDuck:
     def behavior(self, behavior: Behavior) -> None:
         self._behavior = behavior
 
-    def set_ability(self, fly, quack) -> None:
-        self._behavior.set_behavior(fly, quack)
+    def set_ability(self) -> None:
+        self._behavior.execute_ability()
 
 class Behavior(ABC):
     @abstractmethod
-    def set_behavior(self, fly, quack):
+    def execute_ability(self):
         pass
 
-class SetBehavior(Behavior):
-    def set_behavior(self, fly, quack) -> None:
-        if fly == 'fly':
-            print('I can fly')
-        else:
-            print('I can not fly')
+class AbilityA(Behavior):
+    def execute_ability(self) -> None:
+        print('can fly')
 
-        if quack == 'quack':
-            return print('I can quack')
-        else:
-            return print('I can not quack')
+class AbilityB(Behavior):
+    def execute_ability(self) -> None:
+        print('can quack')
 
 
 if __name__ == '__main__':
-    duck = MakeDuck(SetBehavior())
-    duck.set_ability('fly', 'no quack')
+    duck = MakeDuck(AbilityA())
+    duck.set_ability()
+
+    duck2 = MakeDuck(AbilityB())
+    duck2.set_ability()
+
+    duck.behavior = AbilityB()
+    duck.set_ability()
