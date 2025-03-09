@@ -1,4 +1,4 @@
-package RPG
+package strategy_pattern_RPG
 
 import groovy.transform.ToString
 

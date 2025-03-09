@@ -1,7 +1,4 @@
-package RPG
-
-import groovy.transform.ToString
-
+package strategy_pattern_RPG
 
 revy = new Character()
 revy.set_weapon(new Bow())
