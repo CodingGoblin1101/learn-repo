@@ -1,5 +1,11 @@
 package closure_ex_RPG
 
+// TODO: strategy pattern to give different weapons to characters
+// TODO: skills (optional: skills only usable with weapon X)
+// TODO: SPD & round system
+// TODO: enemy attacks (maybe a check with Random() to decide if auto attack or skill is used)
+// TODO: job system (maybe weapon determines job (job change --> change status values & skills?)
+
 """set Status with User input"""
 CharacterGen CharA = new CharacterGen()
 CharA.setName("Revy")
