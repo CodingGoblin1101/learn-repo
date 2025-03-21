@@ -50,16 +50,34 @@ class CharacterGen {
 
 
 }
-def set_status_with_owner = {
+
+@ToString
+class WeaponGen{
+    int ATK
+    int id
+    String name
+    String type
 
 }
 
 CharacterGen CharA = new CharacterGen()
-CharA.setName("Revy")
+CharA.setName("revy")
 //CharA.set_status()
+CharA.ATK = 50
 println CharA
 
 CharacterGen CharB = new CharacterGen()
 //CharB.set_status_with_closure()
 println CharB
 
+WeaponGen Sword = new WeaponGen()
+Sword.ATK = 100
+
+//delegate in closure
+def ATK_buff = { -> delegate.ATK * 1.5}
+ATK_buff.delegate = Sword
+println "ATK Sword with buff: $ATK_buff"
+println "flat Sword ATK: $Sword.ATK"
+ATK_buff.delegate = CharA
+println "ATK Char with buff: $ATK_buff"
+println "flat Char ATK: $CharA.ATK"
