@@ -1,7 +1,9 @@
 package closure_ex_RPG
 
-interface IObjGen {
+interface IWeapon {
     int ATK
+    int id
     String name
+    String type
     def give_weapon()
 }

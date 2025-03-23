@@ -1,6 +1,7 @@
 package closure_ex_RPG
 
 import groovy.transform.ToString
+import strategy_pattern_RPG.Iweapon
 
 @ToString
 class CharacterGen implements IObjGen {
@@ -9,6 +10,16 @@ class CharacterGen implements IObjGen {
     int DEF
     int EXP
     String name
+    def private weapon = IWeapon
+
+    def set_weapon(weapon){
+        this.weapon = weapon
+    }
+
+    def give_weapon(){
+        println "equipped $name $weapon.name sword"
+        return weapon.give_weapon()
+    }
 
     def set_status() {
 
@@ -45,7 +56,7 @@ class CharacterGen implements IObjGen {
                 this.setProperty(key, new_value.toInteger())
             }
             catch(Exception e){
-                owner.setProperty(key, new_value)
+                this.setProperty(key, new_value)
             }
         }
     }

@@ -1,5 +1,7 @@
 package closure_ex_RPG
 
+import strategy_pattern_RPG.Mace
+
 // TODO: strategy pattern to give different weapons to characters
 // TODO: skills (optional: skills only usable with weapon X)
 // TODO: SPD & round system
@@ -17,7 +19,8 @@ CharacterGen CharB = new CharacterGen()
 //CharB.set_status_with_closure()
 println CharB
 
-WeaponGen Sword = new WeaponGen()
+Sword Sword = new Sword()
+Sword.setName("Mythril")
 Sword.ATK = 100
 
 """ATK buff usable with both character & weapon"""
@@ -43,7 +46,7 @@ EnemyA.EXP = 60
 ((Char.ATK * 1.5 + Wpn.ATK * 0.5) - Enemy.DEF) * (1 + RNG_factor)
 """
 def Attack_Enemy(Object Char, Object Wpn, Object Enemy){
-    RNG_factor = new Random().nextFloat(0.3)
+    def RNG_factor = new Random().nextFloat(0.3)
 
     Double DMG = ((Char.ATK * 1.5 + Wpn.ATK * 0.5) - Enemy.DEF) * (1 + RNG_factor)
     DMG = DMG.round(0)
@@ -57,12 +60,15 @@ def Attack_Enemy(Object Char, Object Wpn, Object Enemy){
     }
 }
 
+println ""
+CharA.set_weapon(Sword)
+CharA.give_weapon()
 
 println ""
 println ""
 println "~~~Fight starts~~~"
 CharA.ATK = ATK_buff()
-Attack_Enemy(CharA, Sword, EnemyA)
+Attack_Enemy(ATK_buff, Sword, EnemyA)
 println EnemyA.HP
 
 
@@ -77,3 +83,4 @@ println EnemyA.HP
 
 Attack_Enemy(CharA, Sword, EnemyA)
 println CharA
+
