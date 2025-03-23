@@ -6,11 +6,13 @@ import strategy_pattern_RPG.Iweapon
 @ToString
 class CharacterGen implements IObjGen {
     int HP
+    int MP
     int ATK
     int DEF
     int EXP
     String name
     def private weapon = IWeapon
+    List skills = []
 
     def set_weapon(weapon){
         this.weapon = weapon
@@ -61,5 +63,18 @@ class CharacterGen implements IObjGen {
         }
     }
 
+    def show_skills(){
+        println skills
+    }
+    def use_skill(Object skill){
+        this.skills.find {element ->
+            if (element.name == skill.name){
+                skill.owner = getThisObject()
+                println "$name used $skill.name"
+                skill.use()
 
+            }
+        }
+
+    }
 }

@@ -2,7 +2,6 @@ package closure_ex_RPG
 
 import strategy_pattern_RPG.Mace
 
-// TODO: strategy pattern to give different weapons to characters
 // TODO: skills (optional: skills only usable with weapon X)
 // TODO: SPD & round system
 // TODO: enemy attacks (maybe a check with Random() to decide if auto attack or skill is used)
@@ -83,4 +82,11 @@ println EnemyA.HP
 
 Attack_Enemy(CharA, Sword, EnemyA)
 println CharA
+
+Courage courage = new Courage()
+CharA.skills.add(courage)
+CharA.show_skills()
+println CharA.ATK
+CharA.use_skill(courage)
+println CharA.ATK
 
