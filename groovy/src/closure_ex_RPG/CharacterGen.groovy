@@ -72,7 +72,6 @@ class CharacterGen implements IObjGen {
                 skill.owner = getThisObject()
                 println "$name used $skill.name"
                 skill.use()
-
             }
         }
 

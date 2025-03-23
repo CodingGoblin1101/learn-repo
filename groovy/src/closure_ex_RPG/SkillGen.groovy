@@ -5,11 +5,13 @@ class Courage implements ISkill{
     int MP_cost = 20
     Object owner
 
+
     @Override
     use(){
         def courage = { -> delegate.ATK * 2}
         courage.delegate = owner
-        println owner
-        //owner.ATK = courage.toString().toInteger()
+        int new_atk = "$courage".toInteger()
+        owner.ATK = new_atk
+        println new_atk
     }
 }

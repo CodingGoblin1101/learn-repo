@@ -2,8 +2,7 @@ package closure_ex_RPG
 
 import strategy_pattern_RPG.Mace
 
-// TODO: skills (optional: skills only usable with weapon X)
-// TODO: SPD & round system
+// TODO: SPD & round system HOW?! Counter who resets every fight?
 // TODO: enemy attacks (maybe a check with Random() to decide if auto attack or skill is used)
 // TODO: job system (maybe weapon determines job (job change --> change status values & skills?)
 
